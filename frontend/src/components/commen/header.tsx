@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import './header.css'
 import logo from '../../assets/logo.jpeg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const location = useLocation();
   const menuVariants = {
     hidden: { x: '100%' },
     visible: { x: 0 },
@@ -19,20 +19,43 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <img
-            src={logo}
-            alt="Logo"
-            className="w-10 h-10 object-contain"
-          />
+          <img src={logo} alt="Logo" className="w-10 h-10 object-contain" />
           <span className="text-xl font-semibold text-white">Red Augment</span>
         </div>
 
         {/* Desktop Navigation - shown on lg screens and above */}
         {/* Desktop Navigation - shown on lg screens and above */}
-         <nav className="desktop-nav lg:flex space-x-4 sm:space-x-6 text-white font-light">
-        <Link to="/service" className="hover:text-red-400 transition duration-300">Services</Link>
-        <Link to="/blog" className="hover:text-red-400 transition duration-300">Blog Page</Link>
-        <Link to="/pricing" className="hover:text-red-400 transition duration-300">Pricing Page</Link>
+        <nav className="desktop-nav lg:flex space-x-4 sm:space-x-6 text-white font-light">
+          <Link
+            to="/service"
+            className={`transition duration-300 ${
+              location.pathname === "/service"
+                ? "text-red-400 font-semibold"
+                : "text-white"
+            }`}
+          >
+            Services
+          </Link>
+          <Link
+            to="/blog"
+            className={`transition duration-300 ${
+              location.pathname === "/blog"
+                ? "text-red-400 font-semibold"
+                : "text-white"
+            }`}
+          >
+            Blog Page
+          </Link>
+          <Link
+            to="/pricing"
+            className={`transition duration-300 ${
+              location.pathname === "/pricing"
+                ? "text-red-400 font-semibold"
+                : "text-white"
+            }`}
+          >
+            Pricing Page
+          </Link>
         </nav>
 
         {/* Mobile Menu Button - shown only on screens smaller than lg */}
@@ -61,9 +84,21 @@ const Header = () => {
               </button>
             </div>
             <ul className="space-y-4 text-lg">
-              <li><Link to="/service" onClick={() => setIsOpen(false)}>Services</Link></li>
-              <li><Link to="/blog" onClick={() => setIsOpen(false)}>Blog Page</Link></li>
-              <li><Link to="/pricing" onClick={() => setIsOpen(false)}>Pricing Page</Link></li>
+              <li>
+                <Link to="/service" onClick={() => setIsOpen(false)} className={`${location.pathname === '/service' ? 'text-red-400 font-semibold' : ''}`}>
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" onClick={() => setIsOpen(false)} className={`${location.pathname === '/blog' ? 'text-red-400 font-semibold' : ''}`}>
+                  Blog Page
+                </Link>
+              </li>
+              <li>
+                <Link to="/pricing" onClick={() => setIsOpen(false)} className={`${location.pathname === '/pricing' ? 'text-red-400 font-semibold' : ''}`}>
+                  Pricing Page
+                </Link>
+              </li>
             </ul>
           </motion.nav>
         )}
