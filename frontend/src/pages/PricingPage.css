@@ -1,0 +1,28 @@
+.pricing-background {
+    background: linear-gradient(135deg, #1f1c2c 0%, #534b7d 100%);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+.custom-flex-wrapper {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    /* Default: row */
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .custom-flex-wrapper {
+        flex-direction: column;
+    }
+}

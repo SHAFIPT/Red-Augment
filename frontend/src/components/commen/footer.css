@@ -1,0 +1,23 @@
+footer {
+    background: radial-gradient(circle at center,
+            rgba(165, 97, 42, 0.2) 0%,
+            /* soft brown highlight */
+            rgba(15, 15, 15, 1) 70%
+            /* fades into base dark */
+        ),
+        #0F0F0F;
+    /* solid dark fallback */
+}
+
+.responsive-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .responsive-flex {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

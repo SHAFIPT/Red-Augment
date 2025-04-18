@@ -1,0 +1,111 @@
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.responsive-container {
+    position: relative;
+    z-index: 10;
+    display: none;
+    /* default hidden, like Tailwind's `hidden` */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 90rem;
+    /* Tailwind's max-w-8xl = 1280px, you can tweak if needed */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    /* mt-12 */
+    padding-left: 1rem;
+    /* px-4 */
+    padding-right: 1rem;
+}
+.scroll-wrapper {
+    display: block;
+    /* Tailwind's `block` */
+    margin-top: 2rem;
+    /* Tailwind's `mt-8` = 2rem */
+}
+
+/* Hide on md and larger (md = 768px) */
+@media (min-width: 768px) {
+    .scroll-wrapper {
+        display: none;
+    }
+}
+
+/* Show flex on md and larger */
+@media (min-width: 768px) {
+    .responsive-container {
+        display: flex;
+    }
+}
+
+/* Still flex on lg */
+@media (min-width: 1024px) {
+    .responsive-container {
+        display: flex;
+    }
+}
+
+@media (max-width: 767px) {
+    .scroll-wrapper {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    .scroll-content {
+        white-space: nowrap;
+    }
+
+    .scroll-track {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scrollLeft 35s linear infinite;
+    }
+
+    .scroll-item {
+        display: inline-block;
+        margin-right: 2rem;
+        background: transparent;
+        border: 2px solid #d1d5db;
+        border-radius: 29px;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+.custom-box {
+    position: relative;
+    /* Make the parent a positioning context */
+}
+
+.custom-text-container {
+    position: absolute;
+    bottom: 16px;
+    /* Adjust this value to move the text up or down */
+    left: 16px;
+    /* Adjust this value to move the text left or right */
+    color: white;
+    /* Ensure the text is visible on the image */
+    z-index: 10;
+    /* Ensure the text appears above the image */
+}
+
+.custom-text-container h3 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.custom-text-container p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
