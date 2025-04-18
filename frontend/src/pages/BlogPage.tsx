@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from '../components/commen/header';
 import './BlogPage.css';
 import SearchBox from '../components/commen/SearchBox';

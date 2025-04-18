@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../components/commen/header'
 import './PricingPage.css'
 import nonSelect from '../assets/Frame 18.png'
